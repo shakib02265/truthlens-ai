@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Artificial intelligence causes permanent memory loss.",
+    "ground_truth": "MISLEADING",
+    "category": "technology",
+    "expected_evidence_type": "scientific_neurological"
+  },
+  {
+    "claim": "Drinking green tea completely reverses type-2 diabetes in 30 days.",
+    "ground_truth": "FALSE",
+    "category": "health",
+    "expected_evidence_type": "clinical_trial"
+  },
+  {
+    "claim": "The James Webb Space Telescope detected atmospheric signatures of water vapor on an exoplanet.",
+    "ground_truth": "TRUE",
+    "category": "science",
+    "expected_evidence_type": "peer_reviewed_astronomy"
+  },
+  {
+    "claim": "Global renewable energy capacity surpassed 3,000 gigawatts in 2023.",
+    "ground_truth": "TRUE",
+    "category": "environment",
+    "expected_evidence_type": "government_energy_data"
+  },
+  {
+    "claim": "The Great Wall of China is visible to the naked eye from low Earth orbit without aid.",
+    "ground_truth": "FALSE",
+    "category": "history",
+    "expected_evidence_type": "space_agency_observational"
+  },
+  {
+    "claim": "Central bank interest rate hikes immediately reduce food inflation within 48 hours.",
+    "ground_truth": "MOSTLY FALSE",
+    "category": "economics",
+    "expected_evidence_type": "macroeconomic_reports"
+  },
+  {
+    "claim": "A viral social media post claimed microwave ovens make food radioactive.",
+    "ground_truth": "FALSE",
+    "category": "social_media",
+    "expected_evidence_type": "physics_fda_standards"
+  }
+]
