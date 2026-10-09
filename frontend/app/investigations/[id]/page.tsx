@@ -120,15 +120,15 @@ export default function InvestigationDetailPage() {
       <Navbar />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-8 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-3 md:p-8 max-w-7xl mx-auto w-full min-w-0 overflow-x-hidden">
           {/* Header Banner */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm mb-6">
+          <div className="bg-white rounded-2xl border border-slate-200 p-4 md:p-6 shadow-sm mb-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5 mb-5">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider font-mono text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md mb-2 inline-block">
                   Case ID: {investigation.id.substring(0, 8)} | Mode: {investigation.mode}
                 </span>
-                <h1 className="text-xl font-extrabold text-slate-900 leading-snug">
+                <h1 className="text-lg md:text-xl font-extrabold text-slate-900 leading-snug">
                   "{investigation.claim?.text}"
                 </h1>
               </div>
@@ -150,7 +150,7 @@ export default function InvestigationDetailPage() {
             </div>
 
             {/* Verdict & Confidence Panel */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center bg-slate-50 p-5 rounded-xl border border-slate-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-center bg-slate-50 p-4 md:p-5 rounded-xl border border-slate-200">
               <div>
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Final Verdict</span>
                 <VerdictBadge verdict={investigation.verdict_status} size="lg" />
@@ -173,7 +173,7 @@ export default function InvestigationDetailPage() {
                 )}
               </div>
 
-              <div className="text-right flex flex-col items-end">
+              <div className="flex flex-col items-start sm:items-end">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Human Review Status</span>
                 {isAwaitingReview ? (
                   <button
@@ -192,7 +192,7 @@ export default function InvestigationDetailPage() {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex items-center gap-2 border-b border-slate-200 mb-6">
+          <div className="flex items-center gap-2 border-b border-slate-200 mb-6 overflow-x-auto pb-1 max-w-full no-scrollbar">
             {[
               { id: 'overview', label: 'Executive Summary', icon: BookOpen },
               { id: 'evidence', label: `Evidence Statements (${investigation.evidence?.length || 0})`, icon: Layers },
@@ -206,7 +206,7 @@ export default function InvestigationDetailPage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex items-center gap-2 px-4 py-3 text-xs font-bold border-b-2 transition-all ${
+                  className={`flex items-center gap-2 px-3 py-2.5 md:px-4 md:py-3 text-xs font-bold border-b-2 transition-all whitespace-nowrap shrink-0 ${
                     isActive
                       ? 'border-emerald-600 text-emerald-600'
                       : 'border-transparent text-slate-500 hover:text-slate-800'

@@ -35,15 +35,15 @@ export default function DashboardPage() {
       <Navbar />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-8 max-w-7xl mx-auto w-full">
-          <div className="flex items-center justify-between mb-8">
+        <main className="flex-1 p-4 md:p-8 max-w-7xl mx-auto w-full min-w-0 overflow-x-hidden">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
             <div>
-              <h1 className="text-2xl font-black text-slate-900 tracking-tight">Fact Verification Research Dashboard</h1>
+              <h1 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Fact Verification Research Dashboard</h1>
               <p className="text-xs text-slate-500 mt-1">Autonomous Multi-Agent Investigation Metrics & Recent Cases</p>
             </div>
             <Link
               href="/investigations/new"
-              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-sm transition-all"
+              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all self-start sm:self-auto shrink-0"
             >
               <FileSearch className="w-4 h-4" /> Investigate New Claim
             </Link>

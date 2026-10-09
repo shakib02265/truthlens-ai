@@ -15,7 +15,7 @@ export const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="w-64 bg-slate-900 border-r border-slate-800 flex flex-col justify-between p-4 min-h-[calc(100vh-4rem)]">
+    <aside className="hidden lg:flex w-64 bg-slate-900 border-r border-slate-800 flex-col justify-between p-4 min-h-[calc(100vh-4rem)] shrink-0">
       <div className="space-y-1">
         <div className="px-3 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider">Navigation</div>
         {navItems.map((item) => {
