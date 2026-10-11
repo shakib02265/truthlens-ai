@@ -13,9 +13,20 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
 
-    # Database (Workspace root absolute path)
+    # Database (Workspace root or container app directory fallback)
+    @staticmethod
+    def _resolve_default_db_url() -> str:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        backend_dir = os.path.dirname(os.path.dirname(current_dir))
+        workspace_dir = os.path.dirname(backend_dir)
+        if os.path.exists(os.path.join(workspace_dir, "backend")):
+            db_path = os.path.join(workspace_dir, "truthlens.db")
+        else:
+            db_path = os.path.join(backend_dir, "truthlens.db")
+        return f"sqlite:///{db_path.replace('\\', '/')}"
+
     DATABASE_URL: str = Field(
-        default=f"sqlite:///{os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), 'truthlens.db').replace('\\', '/')}"
+        default_factory=_resolve_default_db_url
     )
     
     # Mode

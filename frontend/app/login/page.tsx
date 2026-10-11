@@ -8,10 +8,16 @@ import { setAuthToken } from '@/lib/api';
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('investigator@truthlens.ai');
-  const [password, setPassword] = useState('SecurePassword123!');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const fillDemoCredentials = () => {
+    setEmail('investigator@truthlens.ai');
+    setPassword('SecurePassword123!');
+    setError('');
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,7 +77,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  placeholder="investigator@truthlens.ai"
+                  placeholder="your.email@example.com"
                 />
               </div>
             </div>
@@ -88,6 +94,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  placeholder="••••••••••••"
                 />
               </div>
             </div>
@@ -102,7 +109,17 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="mt-6 text-center text-xs text-slate-400">
+          <div className="mt-4 pt-4 border-t border-slate-800/80 text-center">
+            <button
+              type="button"
+              onClick={fillDemoCredentials}
+              className="w-full text-center text-[11px] font-medium text-emerald-400/90 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-950/70 border border-emerald-800/50 py-2 rounded-xl transition-colors"
+            >
+              Fill Demo Account Credentials
+            </button>
+          </div>
+
+          <div className="mt-4 text-center text-xs text-slate-400">
             Don't have an account?{' '}
             <Link href="/register" className="font-bold text-emerald-400 hover:underline">
               Create an account
